@@ -1,6 +1,6 @@
 // import css from './Contactform.module.css';
 import { FC, FormEvent, ChangeEvent, useState } from "react";
-import { Contacts } from "../App";
+import { Contacts } from "../contactsSlice";
 
 interface ContactFormProps {
   contacts: Contacts[];

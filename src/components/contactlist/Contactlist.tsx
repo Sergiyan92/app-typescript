@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Contacts } from "../App";
+import { Contacts } from "../contactsSlice";
 interface ContactListProps {
   contacts: Contacts[];
   deleteContact: (id: string) => void;

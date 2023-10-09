@@ -1,6 +1,6 @@
 import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
 
-interface Contacts {
+export interface Contacts {
   id: string;
   name: string;
   number: string;

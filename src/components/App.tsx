@@ -7,12 +7,6 @@ import { addContact, deleteContact } from "./contactsSlice";
 import { RootState } from "./store";
 // import css from './Phonebook.module.css';
 
-export interface Contacts {
-  id: string;
-  name: string;
-  number: string;
-}
-
 export const App = () => {
   const contacts = useSelector((state: RootState) => state.contacts);
   const dispatch = useDispatch();
