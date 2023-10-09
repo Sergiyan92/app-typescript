@@ -1,5 +1,5 @@
 // import css from './Contactform.module.css';
-import { FC, FormEvent, useState } from "react";
+import { FC, FormEvent, ChangeEvent, useState } from "react";
 import { Contacts } from "../App";
 
 interface ContactFormProps {
@@ -27,7 +27,7 @@ export const ContactForm: FC<ContactFormProps> = ({ addContact }) => {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
         value={name}
-        onChange={(e) => setNane(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setNane(e.target.value)}
       />
       <label>Phone</label>
       <input
