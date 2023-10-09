@@ -1,18 +1,22 @@
-import { FC } from 'react';
-import { Contacts } from '../App';
+import { FC } from "react";
+import { Contacts } from "../App";
 interface ContactListProps {
-  contact: Contacts;
+  contacts: Contacts[];
   deleteContact: (id: string) => void;
 }
 
 export const ContactList: FC<ContactListProps> = ({
-  contact,
+  contacts,
   deleteContact,
 }) => {
   return (
-    <li>
-      <p>{contact.name}</p> - <p>{contact.number}</p>
-      <button onClick={() => deleteContact(contact.id)}>Delete</button>
-    </li>
+    <ul>
+      {contacts?.map((contact) => (
+        <li key={contact.id}>
+          {contact.name} - {contact.number}
+          <button onClick={() => deleteContact(contact.id)}>Delete</button>
+        </li>
+      ))}
+    </ul>
   );
 };

@@ -1,7 +1,9 @@
 // import css from './Contactform.module.css';
 import { FC, FormEvent, useState } from "react";
+import { Contacts } from "../App";
 
 interface ContactFormProps {
+  contacts: Contacts[];
   addContact: (name: string, number: string) => void;
 }
 export const ContactForm: FC<ContactFormProps> = ({ addContact }) => {

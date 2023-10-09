@@ -1,11 +1,16 @@
-import PropTypes from 'prop-types';
-import css from './Filter.module.css';
-export const Filter = ({ filter, handleFilterChange }) => {
+import { FC, ChangeEvent } from "react";
+
+interface FilterProps {
+  filter: string;
+  handleFilterChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const Filter: FC<FilterProps> = ({ filter, handleFilterChange }) => {
   return (
     <>
-      <label className={css.labelSearch}>Find contacts by name</label>
+      <label>Find contacts by name</label>
       <input
-        className={css.inputSearch}
+        // className={css.inputSearch}
         type="text"
         name="filter"
         placeholder="Search"
@@ -14,8 +19,4 @@ export const Filter = ({ filter, handleFilterChange }) => {
       />
     </>
   );
-};
-Filter.propTypes = {
-  filter: PropTypes.string,
-  handleFilterChange: PropTypes.func,
 };

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import { ContactForm } from "./contactform/Contactform";
 import { Filter } from "./filter/Filter";
 import { ContactList } from "./contactlist/Contactlist";
@@ -27,7 +27,7 @@ export const App = () => {
     }
   });
 
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState<string>("");
 
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
@@ -57,9 +57,8 @@ export const App = () => {
       prevContacts.filter((contact) => contact.id !== id)
     );
   };
-
-  const handleFilterChange = (event: string) => {
-    setFilter(event);
+  const handleFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setFilter(event.target.value);
   };
 
   const filteredContacts = contacts?.filter((contact) =>
@@ -69,16 +68,10 @@ export const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm addContact={addContact} />
+      <ContactForm contacts={contacts} addContact={addContact} />
       <h2>Contacts</h2>
       <Filter filter={filter} handleFilterChange={handleFilterChange} />
-      <ul>
-        {contacts?.map((contact) => (
-          <li key={contact.id}>
-            <ContactList contact={contact} deleteContact={deleteContact} />
-          </li>
-        ))}
-      </ul>
+      <ContactList contacts={filteredContacts} deleteContact={deleteContact} />
     </div>
   );
 };
